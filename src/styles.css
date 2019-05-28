@@ -1,0 +1,22 @@
+:root {
+  /* colors */
+  --color-primary: #00b894;
+  --color-primary-darken: #00997A;
+  --color-disabled: #00E3C1;
+  --color-body: #f5f6fa;
+
+  /* size */
+  --size-big: 20px;
+  --size-medium: 10px;
+  --size-small: 5px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-body);
+  font-size: 16px;
+  color: #000;
+  font-family: 'Quicksand', sans-serif;
+}

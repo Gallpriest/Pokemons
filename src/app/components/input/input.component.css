@@ -1,0 +1,24 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--size-medium);
+}
+
+.input__label {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  padding-bottom: var(--size-small);
+}
+
+.input__default {
+  border-style: none;
+  border-bottom: 1px solid var(--color-disabled);
+  text-shadow: none;
+  outline: none;
+  padding: 7px 10px 10px 0;
+}
+
+.input__default:focus {
+  border-color: var(--color-prime);
+  text-shadow: none;
+}

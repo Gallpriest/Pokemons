@@ -1,0 +1,29 @@
+<form action="">
+  <div class="form">
+    <app-input
+      (inputVal)="pokemonNameHandler($event)"
+      [id]="input.id"
+      [type]="input.type"
+      [label]="input.label"
+      [disabled]="input.disabled"
+      [className]="input.className"
+      [placeholder]="input.placeholder"
+    >
+    </app-input>
+    <app-button
+      (click)="startSearch()"
+      [name]="button.name"
+      [type]="button.type"
+      [disabled]="button.disabled"
+      [className]="button.className"
+    >
+    </app-button>
+
+  <!-- <div *ngIf="POKEMONS_LIST">
+    <div *ngFor="let pokemon of POKEMONS_LIST.results">
+      {{ pokemon.name }}
+    </div>
+  </div> -->
+
+  </div>
+</form>

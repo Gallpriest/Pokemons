@@ -1,0 +1,9 @@
+<div class="input">
+  <label [for]="id" class="input__label">{{ label }}:</label>
+  <input
+    (keyup)="getInputValue($event)"
+    [type]="type"
+    [name]="id"
+    [placeholder]="placeholder"
+    class="input__default">
+</div>

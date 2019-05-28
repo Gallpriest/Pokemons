@@ -1,0 +1,11 @@
+.wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form,
+.result {
+  padding: 20px;
+  margin: 20px;
+  flex-grow: 1;
+}
