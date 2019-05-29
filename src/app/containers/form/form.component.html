@@ -10,6 +10,12 @@
       [placeholder]="input.placeholder"
     >
     </app-input>
+    <label class="form__label" for="">Select pokemon's type</label>
+    <ng-select
+      [items]="POKEMON_TYPES"
+      bindLabel="type"
+      placeholder="Choose pokemon"
+    ></ng-select>
     <app-button
       (click)="startSearch()"
       [name]="button.name"
@@ -18,6 +24,7 @@
       [className]="button.className"
     >
     </app-button>
+
 
   <!-- <div *ngIf="POKEMONS_LIST">
     <div *ngFor="let pokemon of POKEMONS_LIST.results">

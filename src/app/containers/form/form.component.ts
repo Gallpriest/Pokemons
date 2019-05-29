@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { searchButton, formInput } from './mock-form';
+import { searchButton, formInput, pokemonTypes } from './mock-form';
 import { ConfigService } from 'src/app/services/config.service';
 import { SearchParams } from './interface';
 
@@ -12,8 +12,9 @@ export class FormComponent implements OnInit {
   button = searchButton;
   input = formInput;
   POKEMONS_LIST: {};
+  POKEMON_TYPES = pokemonTypes;
   SEARCH_PARAMETERS: SearchParams;
-
+  // poison, grass, fire, flying, bug, water, normal
   constructor(private httpService: ConfigService) { }
 
   ngOnInit() {
@@ -21,7 +22,9 @@ export class FormComponent implements OnInit {
   }
 
   startSearch() {
-    this.httpService.getOnePokemon(10).subscribe(pokemon => console.log(pokemon));
+    for (let i = 1; i < 20; i++) {
+      this.httpService.getOnePokemon(i).subscribe(pokemon => console.log(pokemon));
+    }
   }
 
   pokemonNameHandler(value: string) {

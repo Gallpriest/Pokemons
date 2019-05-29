@@ -20,3 +20,7 @@ body {
   color: #000;
   font-family: 'Quicksand', sans-serif;
 }
+
+input:internal-autofill-selected {
+  background-color: transparent;
+}
