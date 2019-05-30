@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { searchButton, formInput, pokemonTypes } from './mock-form';
-import { ConfigService } from 'src/app/services/config.service';
-import { SearchParams } from './interface';
+import { SearchParams, PokemonTypes } from './interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -11,23 +11,24 @@ import { SearchParams } from './interface';
 export class FormComponent implements OnInit {
   button = searchButton;
   input = formInput;
-  POKEMONS_LIST: {};
-  POKEMON_TYPES = pokemonTypes;
-  SEARCH_PARAMETERS: SearchParams;
-  // poison, grass, fire, flying, bug, water, normal
-  constructor(private httpService: ConfigService) { }
+  POKEMON_TYPES: PokemonTypes[] = pokemonTypes;
+  SEARCH_PARAMETERS: SearchParams = { name: '', typeData: { id: '', type: '' } };
 
-  ngOnInit() {
-    this.httpService.getPokemons().subscribe(data => this.POKEMONS_LIST = data);
-  }
+  constructor(private route: Router) { }
+
+  ngOnInit() {}
+
+  pokemonTypeHandler(value) { this.SEARCH_PARAMETERS.typeData = value; }
+
+  pokemonNameHandler(value: string) { this.SEARCH_PARAMETERS.name = value; }
 
   startSearch() {
-    for (let i = 1; i < 20; i++) {
-      this.httpService.getOnePokemon(i).subscribe(pokemon => console.log(pokemon));
-    }
-  }
-
-  pokemonNameHandler(value: string) {
-    console.log(value)
+    this.route.navigate(
+      ['list'],
+      { queryParams:
+          { name: this.SEARCH_PARAMETERS.name,
+            type: this.SEARCH_PARAMETERS.typeData.type
+          }
+      });
   }
 }

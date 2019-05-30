@@ -1,4 +1,9 @@
 export interface SearchParams {
   name?: string;
-  type?: string;
+  typeData?: { type: string; id: string };
+}
+
+export interface PokemonTypes {
+  id: number;
+  type: string;
 }

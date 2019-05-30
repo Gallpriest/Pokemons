@@ -11,7 +11,7 @@ export const formInput = {
   disabled: false,
   type: 'text',
   className: '',
-  placeholder: 'Enter the name'
+  placeholder: 'Type name'
 }
 
 export const pokemonTypes = [
@@ -22,6 +22,5 @@ export const pokemonTypes = [
   { id: 5, type: 'bug' },
   { id: 6, type: 'water' },
   { id: 7, type: 'normal' }
-
-]
+];
 

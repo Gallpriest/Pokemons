@@ -12,6 +12,9 @@
     </app-input>
     <label class="form__label" for="">Select pokemon's type</label>
     <ng-select
+      [ngModel]="SEARCH_PARAMETERS.typeData"
+      (ngModelChange)="pokemonTypeHandler($event)"
+      [ngModelOptions]="{standalone: true}"
       [items]="POKEMON_TYPES"
       bindLabel="type"
       placeholder="Choose pokemon"
@@ -24,13 +27,5 @@
       [className]="button.className"
     >
     </app-button>
-
-
-  <!-- <div *ngIf="POKEMONS_LIST">
-    <div *ngFor="let pokemon of POKEMONS_LIST.results">
-      {{ pokemon.name }}
-    </div>
-  </div> -->
-
   </div>
 </form>

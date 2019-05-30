@@ -9,6 +9,10 @@ import { WrapComponent } from './wrap/wrap.component';
 import { FormComponent } from './containers/form/form.component';
 import { InputComponent } from './components/input/input.component';
 import { ButtonComponent } from './components/button/button.component';
+import { PokemonListComponent } from './containers/pokemon-list/pokemon-list.component';
+import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
+
+import { AppRouter } from './app.router';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,16 @@ import { ButtonComponent } from './components/button/button.component';
     WrapComponent,
     FormComponent,
     InputComponent,
-    ButtonComponent
+    ButtonComponent,
+    PokemonListComponent,
+    PokemonCardComponent
   ],
   imports: [
     NgSelectModule,
     FormsModule,
     BrowserModule,
     HttpClientModule,
+    AppRouter
   ],
   providers: [],
   bootstrap: [AppComponent]
