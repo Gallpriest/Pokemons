@@ -7,18 +7,19 @@
       [label]="input.label"
       [disabled]="input.disabled"
       [className]="input.className"
-      [placeholder]="input.placeholder"
+      [placeholder]="''"
     >
     </app-input>
     <label class="form__label" for="">Select pokemon's type</label>
     <ng-select
-      [ngModel]="SEARCH_PARAMETERS.typeData"
+      ngModel
       (ngModelChange)="pokemonTypeHandler($event)"
       [ngModelOptions]="{standalone: true}"
       [items]="POKEMON_TYPES"
       bindLabel="type"
-      placeholder="Choose pokemon"
-    ></ng-select>
+      [placeholder]="'Choose pokemon'"
+    >
+    </ng-select>
     <app-button
       (click)="startSearch()"
       [name]="button.name"

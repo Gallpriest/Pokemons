@@ -18,7 +18,9 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {}
 
-  pokemonTypeHandler(value) { this.SEARCH_PARAMETERS.typeData = value; }
+  pokemonTypeHandler(value) {
+    this.SEARCH_PARAMETERS.typeData = value !== null ? value :  { id: '', type: '' };
+  }
 
   pokemonNameHandler(value: string) { this.SEARCH_PARAMETERS.name = value; }
 
@@ -26,7 +28,8 @@ export class FormComponent implements OnInit {
     this.route.navigate(
       ['list'],
       { queryParams:
-          { name: this.SEARCH_PARAMETERS.name,
+          {
+            name: this.SEARCH_PARAMETERS.name,
             type: this.SEARCH_PARAMETERS.typeData.type
           }
       });

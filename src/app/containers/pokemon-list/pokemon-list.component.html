@@ -1,3 +1,22 @@
 <div class="list">
   List of pokemons
+  <br>
+  <ng-container *ngIf="filteredPokemonArray$ | async as filteredPokemons; else loader">
+    <div *ngIf="filteredPokemons.length; else pokemonsNotFound ">
+      <div *ngFor="let pokemon of filteredPokemons">
+        {{ pokemon.name }}
+        <div>
+          {{ pokemon.abilities | json }}
+        </div>
+        <br>
+      </div>
+
+    </div>
+    <ng-template #pokemonsNotFound>
+      <span>No such pokemons</span>
+    </ng-template>
+  </ng-container>
+  <ng-template #loader>
+    {{ isError ? 'Error...' : 'Loading...' }}
+  </ng-template>
 </div>
