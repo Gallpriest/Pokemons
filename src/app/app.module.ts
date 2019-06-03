@@ -13,6 +13,8 @@ import { PokemonListComponent } from './containers/pokemon-list/pokemon-list.com
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 
 import { AppRouter } from './app.router';
+import { GuardService } from './guard.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { AppRouter } from './app.router';
     HttpClientModule,
     AppRouter
   ],
-  providers: [],
+  providers: [AuthService, GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
