@@ -1,19 +1,40 @@
 <div class="list">
   List of pokemons
-  <br>
   <ng-container *ngIf="filteredPokemonArray$ | async as filteredPokemons; else loader">
-    <div *ngIf="filteredPokemons.length; else pokemonsNotFound ">
-      <div *ngFor="let pokemon of filteredPokemons">
-        {{ pokemon.name }}
-        <div>
-          {{ pokemon.abilities | json }}
+    <app-button
+      (click)="openFilter()"
+      [name]="button.name"
+      [type]="button.type"
+      [disabled]="button.disabled"
+      [className]="button.className"
+    >
+    </app-button>
+    <div *ngIf="isOpened">
+      <app-filter [filteredPokemons]="filteredPokemonArray$"></app-filter>
+    </div>
+    <div class="pokemons" *ngIf="filteredPokemons.length; else pokemonsNotFound ">
+      <div class="pokemons__item" *ngFor="let pokemon of filteredPokemons">
+        <div class="pokemons__name">
+          {{ pokemon.name }}
         </div>
-        <br>
+        <div class="pokemons__stats">
+          <div class="pokemons__title">Parameters</div>
+          <div class="pokemons__parameters">
+            <div class="pokemons__param">Height: {{ pokemon.height }}</div>
+            <div class="pokemons__param">Weight: {{ pokemon.weight }}</div>
+            <div class="pokemons__param">Base experience: {{ pokemon.base_experience }}</div>
+          </div>
+        </div>
+        <div class="pokemons__abilities">
+          <div class="pokemons__title">Abilities</div>
+          <div *ngFor="let abilityObj of pokemon.abilities" class="pokemons__ability">
+            {{ abilityObj.ability.name }}
+          </div>
+        </div>
       </div>
-
     </div>
     <ng-template #pokemonsNotFound>
-      <span>No such pokemons</span>
+      <div class="not-found">Pokemons are missing... =(</div>
     </ng-template>
   </ng-container>
   <ng-template #loader>

@@ -35,7 +35,6 @@ export class PokemonService {
     return forkJoin(POKEMON_LIST);
   }
 
-
   getFilteredPokemonList(queryParams) {
     const { name, type } = queryParams;
     const parametersArray = [

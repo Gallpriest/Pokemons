@@ -10,11 +10,12 @@ import { FormComponent } from './containers/form/form.component';
 import { InputComponent } from './components/input/input.component';
 import { ButtonComponent } from './components/button/button.component';
 import { PokemonListComponent } from './containers/pokemon-list/pokemon-list.component';
-import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
+import { PokemonCardComponent } from './containers/pokemon-list/pokemon-card/pokemon-card.component';
 
 import { AppRouter } from './app.router';
 import { GuardService } from './guard.service';
 import { AuthService } from './auth.service';
+import { FilterComponent } from './containers/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AuthService } from './auth.service';
     InputComponent,
     ButtonComponent,
     PokemonListComponent,
-    PokemonCardComponent
+    PokemonCardComponent,
+    FilterComponent
   ],
   imports: [
     NgSelectModule,

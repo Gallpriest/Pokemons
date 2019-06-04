@@ -53,3 +53,7 @@
   opacity: 0.1;
   transform: translate3d(-34%, 44%, 0) scale(1.1);;
 }
+
+.filter-button {
+  margin-top: var(--size-big);
+}

@@ -1,0 +1,13 @@
+<div class="filter">
+  <div class="filter__field">
+    <div>Can have items</div>
+    <ng-select
+      ngModel
+      (ngModelChange)="pokemonTypeHandler($event)"
+      [ngModelOptions]="{standalone: true}"
+      [items]=""
+      bindLabel="label"
+    >
+    </ng-select>
+  </div>
+</div>

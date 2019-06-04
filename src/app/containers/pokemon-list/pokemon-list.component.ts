@@ -3,6 +3,7 @@ import {PokemonService} from '../../services/pokemons.service';
 import {ActivatedRoute} from '@angular/router';
 import {catchError, filter, switchMap, tap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {filterButton} from './mock-filter';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -12,12 +13,15 @@ import {Observable} from 'rxjs';
 export class PokemonListComponent implements OnInit {
   filteredPokemonArray$: Observable<any[]>;
   isError = false;
+  button = filterButton;
+  isOpened = false;
 
   constructor(
     private pokemonService: PokemonService,
     private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.pokemonService.getPokemonList().subscribe(data => console.log(data))
     this.filteredPokemonArray$ = this.activeRoute.queryParams
       .pipe(
         tap(() => this.isError = false),
@@ -25,5 +29,9 @@ export class PokemonListComponent implements OnInit {
         tap(list => console.log(list)),
         catchError((error) => { this.isError = true; throw error; })
       );
+  }
+
+  openFilter() {
+    this.isOpened = !this.isOpened;
   }
 }

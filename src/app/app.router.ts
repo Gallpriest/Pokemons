@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PokemonListComponent } from './containers/pokemon-list/pokemon-list.component';
-import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { GuardService } from './guard.service';
 
 const routes: Routes = [

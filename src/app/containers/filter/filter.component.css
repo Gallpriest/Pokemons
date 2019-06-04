@@ -1,0 +1,57 @@
+.filter {
+  margin-top: var(--size-medium);
+  max-width: 50%;
+}
+
+
+
+:host::ng-deep .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
+  font-size: 14px;
+  padding-left: 5px;
+  top: 12px;
+}
+
+:host::ng-deep  .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value {
+  font-size: 14px;
+  padding-left: 0;
+  margin-left: -5px;
+}
+
+:host::ng-deep .ng-select .ng-select-container {
+  border-style: none;
+  border-bottom: 1px solid var(--color-disabled);
+  text-shadow: none;
+  outline: none;
+  padding: 3px 10px 0 0;
+  border-radius: 0;
+  margin-bottom: var(--size-big);
+}
+
+:host::ng-deep .ng-select .ng-select-container:focus {
+  border-color: var(--color-primary);
+  text-shadow: none;
+}
+
+:host::ng-deep .ng-select.ng-select-multiple .ng-select-container .ng-value-container {
+  padding-top: 0;
+  padding-left: 0;
+}
+
+:host::ng-deep .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
+  top: 12px;
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+:host::ng-deep .ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+  border-color: var(--color-primary);
+  box-shadow: none;
+}
+
+:host::ng-deep .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+  background-color: var(--color-disabled)
+}
+
+:host::ng-deep .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon:hover {
+  background-color: var(--color-primary)
+}
