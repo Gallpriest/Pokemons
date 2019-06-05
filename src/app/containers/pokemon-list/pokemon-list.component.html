@@ -1,18 +1,21 @@
 <div class="list">
   List of pokemons
   <ng-container *ngIf="filteredPokemonArray$ | async as filteredPokemons; else loader">
-    <app-button
-      (click)="openFilter()"
-      [name]="button.name"
-      [type]="button.type"
-      [disabled]="button.disabled"
-      [className]="button.className"
-    >
-    </app-button>
-    <div *ngIf="isOpened">
-      <app-filter [filteredPokemons]="filteredPokemonArray$"></app-filter>
-    </div>
     <div class="pokemons" *ngIf="filteredPokemons.length; else pokemonsNotFound ">
+        <app-button
+        (click)="openFilter()"
+        [name]="button.name"
+        [type]="button.type"
+        [disabled]="button.disabled"
+        [className]="button.className"
+      >
+      </app-button>
+      <div *ngIf="isOpened">
+        <app-filter
+          [filteredPokemons]="filteredPokemonArray$"
+          (chosenItemsValue)="filteredItems($event)">
+        </app-filter>
+      </div>
       <div class="pokemons__item" *ngFor="let pokemon of filteredPokemons">
         <div class="pokemons__name">
           {{ pokemon.name }}

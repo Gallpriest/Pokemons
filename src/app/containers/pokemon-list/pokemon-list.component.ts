@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PokemonService} from '../../services/pokemons.service';
 import {ActivatedRoute} from '@angular/router';
-import {catchError, filter, switchMap, tap} from 'rxjs/operators';
+import {catchError, filter, switchMap, tap, map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {filterButton} from './mock-filter';
 
@@ -21,7 +21,6 @@ export class PokemonListComponent implements OnInit {
     private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.pokemonService.getPokemonList().subscribe(data => console.log(data))
     this.filteredPokemonArray$ = this.activeRoute.queryParams
       .pipe(
         tap(() => this.isError = false),
@@ -33,5 +32,11 @@ export class PokemonListComponent implements OnInit {
 
   openFilter() {
     this.isOpened = !this.isOpened;
+  }
+
+  filteredItems(value: boolean) {
+    this.filteredPokemonArray$.pipe(
+      map(list => list.filter(pokemon => !!pokemon.held_items.length === value))
+    ).subscribe();
   }
 }

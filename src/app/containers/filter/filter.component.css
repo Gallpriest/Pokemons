@@ -1,9 +1,22 @@
 .filter {
-  margin-top: var(--size-medium);
-  max-width: 50%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-primary);
+  padding: 10px;
+  color: #fff;
+  margin-bottom: 10px;
 }
 
+.filter__field {
+  flex-grow: 1;
+  max-width: 180px;
+  font-size: 14px;
+}
 
+.filter__title {
+  padding-bottom: var(--size-small);
+}
 
 :host::ng-deep .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
   font-size: 14px;

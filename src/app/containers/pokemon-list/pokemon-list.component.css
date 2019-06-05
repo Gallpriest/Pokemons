@@ -10,7 +10,7 @@
 }
 
 .pokemons {
-  margin-top: var(--size-big);
+  margin-top: 0;
 }
 
 .pokemons__item {
@@ -66,10 +66,12 @@
 .not-found {
   display: flex;
   justify-content: center;
-  padding: var(--size-small);
+  padding: var(--size-medium);
   font-size: 14px;
   text-transform: uppercase;
   margin: var(--size-big) 0;
+  background-color: var(--color-primary);
+  color: #fff;
 }
 
 

@@ -1,11 +1,21 @@
 <div class="filter">
   <div class="filter__field">
-    <div>Can have items</div>
+    <div class="filter__title">Search pokemon by opportunity to hold items</div>
     <ng-select
       ngModel
-      (ngModelChange)="pokemonTypeHandler($event)"
+      (ngModelChange)="checkItems($event)"
       [ngModelOptions]="{standalone: true}"
-      [items]=""
+      [items]="canHaveItems"
+      bindLabel="label"
+    >
+    </ng-select>
+  </div>
+  <div class="filter__field">
+    <div class="filter__title">Search pokemon by abilities</div>
+    <ng-select
+      ngModel
+      [ngModelOptions]="{standalone: true}"
+      [items]="pokemonsFilteredData.abilities"
       bindLabel="label"
     >
     </ng-select>
